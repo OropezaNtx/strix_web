@@ -34,15 +34,8 @@ const futureCapabilities = [
 
 function Brand() {
   return (
-    <a className="brand" href="#top" aria-label="ASTRIX inicio">
-      <span className="brand-mark" aria-hidden="true">
-        <i className="ear left" />
-        <i className="ear right" />
-        <i className="eye left" />
-        <i className="eye right" />
-        <i className="beak" />
-      </span>
-      <span>ASTRIX</span><b>_</b>
+    <a className="brand" href="#top" aria-label="STRIX inicio">
+      <span className="brand-word">STRIX WEB</span><b>_</b>
     </a>
   );
 }
@@ -99,7 +92,7 @@ export default function Home() {
             <a href="#inteligencia">Inteligencia</a>
             <a href="#casos">Casos de uso</a>
             <a href="#plataforma">Plataforma</a>
-            <a href="#contacto" className="nav-cta">Solicitar demo</a>
+            <a href="#contacto" className="nav-cta">Hablar con STRIX</a>
           </nav>
         </div>
       </header>
@@ -108,7 +101,7 @@ export default function Home() {
         <div className="hero-copy">
           <div className="eyebrow"><span /> PUBLIC INTELLIGENCE PLATFORM</div>
           <h1>Entiende qué está moldeando la <em>conversación pública.</em></h1>
-          <p className="hero-lead">ASTRIX convierte información pública dispersa en señales accionables sobre narrativas, tendencias, territorio y riesgo.</p>
+          <p className="hero-lead">STRIX convierte información pública dispersa en señales accionables sobre narrativas, tendencias, territorio y riesgo.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#contacto">Solicitar demo <span>↗</span></a>
             <a className="button button-ghost" href="#producto">Ver cómo funciona</a>
@@ -123,18 +116,18 @@ export default function Home() {
       </section>
 
       <section className="problem shell" id="producto">
-        <div className="section-index">ASTRIX / 001</div>
+        <div className="section-index">STRIX / 001</div>
         <div>
           <p className="kicker">EL PROBLEMA</p>
           <h2>Más información no significa más claridad.</h2>
         </div>
-        <p className="muted">Noticias, medios, sitios, fuentes públicas, reportes y múltiples territorios generan volumen, pero no necesariamente contexto. ASTRIX reduce el ruido y organiza la evidencia alrededor de preguntas concretas.</p>
+        <p className="muted">Noticias, medios, sitios, fuentes públicas, reportes y múltiples territorios generan volumen, pero no necesariamente contexto. STRIX reduce el ruido y organiza la evidencia alrededor de preguntas concretas.</p>
       </section>
 
       <section className="pipeline-section">
         <div className="shell">
           <div className="section-heading compact">
-            <div><span className="section-index">ASTRIX / 002</span><h2>De fuente pública a inteligencia.</h2></div>
+            <div><span className="section-index">STRIX / 002</span><h2>De fuente pública a inteligencia.</h2></div>
             <p>Una pipeline orientada a entender qué cambia, dónde cambia y por qué merece atención.</p>
           </div>
           <div className="pipeline">
@@ -149,8 +142,8 @@ export default function Home() {
 
       <section className="section shell" id="inteligencia">
         <div className="section-heading">
-          <div><span className="section-index">ASTRIX / 003</span><h2>Intelligence Brief</h2></div>
-          <p>ASTRIX no obliga al usuario a interpretar veinte gráficas. Resume la señal y deja disponible la evidencia detrás de cada conclusión.</p>
+          <div><span className="section-index">STRIX / 003</span><h2>Intelligence Brief</h2></div>
+          <p>STRIX no obliga al usuario a interpretar veinte gráficas. Resume la señal y deja disponible la evidencia detrás de cada conclusión.</p>
         </div>
         <ProductBrief />
       </section>
@@ -188,7 +181,7 @@ export default function Home() {
       <section className="evidence-section">
         <div className="shell evidence-grid">
           <div>
-            <span className="section-index">ASTRIX / 004</span>
+            <span className="section-index">STRIX / 004</span>
             <p className="kicker">EVIDENCE / TRACEABILITY</p>
             <h2>Cada conclusión debe poder auditarse.</h2>
             <p className="muted">Señal, explicación, posts, fuentes, territorio y contenido original permanecen conectados para poder verificar cómo se llegó a una lectura.</p>
@@ -205,7 +198,7 @@ export default function Home() {
 
       <section className="section shell projects-section">
         <div className="section-heading">
-          <div><span className="section-index">ASTRIX / 005</span><h2>Monitoring Projects</h2></div>
+          <div><span className="section-index">STRIX / 005</span><h2>Monitoring Projects</h2></div>
           <p>La plataforma se adapta al problema, no al revés. Cada proyecto define su propio scope y reglas de matching.</p>
         </div>
         <div className="project-layout">
@@ -222,7 +215,7 @@ export default function Home() {
 
       <section className="section shell" id="casos">
         <div className="section-heading">
-          <div><span className="section-index">ASTRIX / 006</span><h2>Casos de uso</h2></div>
+          <div><span className="section-index">STRIX / 006</span><h2>Casos de uso</h2></div>
           <p>Una plataforma de Public Intelligence para equipos que necesitan contexto defendible, no solo volumen de datos.</p>
         </div>
         <div className="usecase-grid">{useCases.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
@@ -231,7 +224,7 @@ export default function Home() {
       <section className="platform-section" id="plataforma">
         <div className="shell">
           <div className="section-heading">
-            <div><span className="section-index">ASTRIX / 007</span><h2>Plataforma actual y visión</h2></div>
+            <div><span className="section-index">STRIX / 007</span><h2>Plataforma actual y visión</h2></div>
             <p>Separamos con claridad lo que ya existe de lo que está diseñado para evolucionar.</p>
           </div>
           <div className="platform-columns">
@@ -242,13 +235,13 @@ export default function Home() {
       </section>
 
       <section className="cta shell" id="contacto">
-        <span className="section-index">ASTRIX / 008</span>
+        <span className="section-index">STRIX / 008</span>
         <p>PUBLIC INTELLIGENCE, CON EVIDENCIA.</p>
         <h2>Convierte información pública en <em>inteligencia accionable.</em></h2>
-        <div className="hero-actions cta-actions"><a className="button button-primary large" href="mailto:foropeza0526@gmail.com">Solicitar una demostración <span>↗</span></a><a className="button button-ghost large" href="mailto:foropeza0526@gmail.com?subject=ASTRIX%20-%20Caso%20de%20uso">Hablar sobre un caso de uso</a></div>
+        <div className="hero-actions cta-actions"><a className="button button-primary large" href="mailto:foropeza0526@gmail.com">Solicitar una demostración <span>↗</span></a><a className="button button-ghost large" href="mailto:foropeza0526@gmail.com?subject=STRIX%20-%20Caso%20de%20uso">Hablar sobre un caso de uso</a></div>
       </section>
 
-      <footer className="footer shell"><Brand /><p>Public Intelligence Platform · Monitoring · Evidence · Narratives · Geo</p><span>© 2026 ASTRIX</span></footer>
+      <footer className="footer shell"><Brand /><p>Public Intelligence Platform · Monitoring · Evidence · Narratives · Geo</p><span>© 2026 STRIX WEB</span></footer>
     </main>
   );
 }
