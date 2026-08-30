@@ -1,0 +1,152 @@
+:root{
+  --bg:#05070a;
+  --panel:#0b1016;
+  --panel2:#111820;
+  --panel3:#151c24;
+  --text:#ece8e2;
+  --muted:#8e949d;
+  --line:rgba(255,255,255,.09);
+  --cyan:#ff1a1a;
+  --teal:#c9c4bd;
+  --violet:#7f858c;
+  --coral:#ff1a1a;
+  --amber:#d4c7a7;
+  --green:#a6b29f;
+}
+
+body{
+  background:
+    radial-gradient(circle at 72% 8%,rgba(72,91,112,.12),transparent 24%),
+    radial-gradient(circle at 13% 72%,rgba(100,24,24,.08),transparent 30%),
+    linear-gradient(180deg,#05070a 0%,#070a0f 42%,#05070a 100%);
+  color:var(--text);
+}
+
+body:before{
+  background-image:
+    linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+  background-size:42px 42px;
+}
+
+.ambient-a{background:#263747;opacity:.16}
+.ambient-b{background:#501010;opacity:.14}
+
+.nav-wrap{
+  background:rgba(5,7,10,.78);
+  border-bottom:1px solid var(--line);
+}
+
+.brand{
+  font-family:"Space Mono",monospace;
+  letter-spacing:.22em;
+  font-size:15px;
+  font-weight:700;
+}
+.brand-word{color:#eeeae4}
+.brand>b{color:#ff1a1a}
+
+nav{color:#c4c8cd}
+.nav-cta{
+  border:1px solid rgba(255,255,255,.11);
+  background:rgba(255,255,255,.02);
+}
+.nav-cta:hover{border-color:rgba(255,26,26,.55)}
+
+.eyebrow{color:#b2b6bb}
+.eyebrow span{
+  background:#ff1a1a;
+  box-shadow:none;
+}
+
+.hero h1 em,.cta h2 em{color:#9ca2aa}
+.hero-lead{color:#a8aeb5}
+.trust-row{color:#747b83}
+
+.button:hover{border-color:rgba(255,255,255,.25)}
+.button-primary{
+  background:#ece8e2;
+  color:#07090b;
+  border-color:#ece8e2;
+}
+.button-primary span{color:#ff1a1a}
+.button-ghost{background:rgba(255,255,255,.025)}
+
+.product-window{
+  background:linear-gradient(180deg,rgba(11,16,22,.985),rgba(5,8,11,.985));
+  box-shadow:0 35px 100px rgba(0,0,0,.52),0 0 70px rgba(255,255,255,.025);
+}
+
+.dot.cyan{background:#e6e1db}
+.dot.violet{background:#8d9298}
+.dot.coral{background:#ff1a1a}
+.status i{
+  background:#a6b29f;
+  box-shadow:0 0 8px rgba(166,178,159,.45);
+}
+
+.panel-label,.section-index{color:#6f767e}
+.brief-main p,.muted,.section-heading>p,.intel-card p{color:#8d949c}
+.risk-row b{color:#d4c7a7}
+.risk-row i{background:#d4c7a7;box-shadow:0 0 8px rgba(212,199,167,.45)}
+
+.mini-map,.geo-visual{
+  background:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px),
+    radial-gradient(circle at 50% 45%,rgba(255,255,255,.035),transparent 45%);
+  background-size:24px 24px,24px 24px,auto;
+}
+.map-glow{background:#d7d7d3;box-shadow:0 0 22px rgba(255,255,255,.45)}
+.g2{background:#8f949b}
+.g3{background:#ff1a1a;box-shadow:0 0 24px rgba(255,26,26,.55)}
+.territory,.geo-tag{background:rgba(5,7,10,.84)}
+
+.kicker{color:#ff1a1a}
+.pipeline-section,.platform-section,.evidence-section{background:rgba(9,13,18,.88)}
+.pipeline{background:rgba(5,7,10,.58)}
+.pipeline-step b,.evidence-flow b{color:#ff1a1a}
+
+.intel-card{
+  background:linear-gradient(180deg,rgba(13,18,24,.94),rgba(7,10,14,.93));
+}
+.intel-card:hover{border-color:rgba(255,255,255,.18)}
+
+.chart-line{
+  background:linear-gradient(to top,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:100% 35px;
+}
+.chart-line i{
+  background:linear-gradient(to top,rgba(255,255,255,.16),rgba(216,216,211,.78));
+}
+.chart-line i:nth-child(9),
+.chart-line i:nth-child(12){
+  background:linear-gradient(to top,rgba(255,26,26,.22),rgba(255,26,26,.82));
+}
+.trend-header b{color:#d4c7a7}
+
+.narrative-badge{
+  border-color:rgba(255,255,255,.13);
+  background:rgba(255,255,255,.035);
+  color:#c2c5c8;
+}
+
+.project-list>div.active{border-color:rgba(255,26,26,.4)!important;background:rgba(255,26,26,.035)!important}
+.project-list>div.active b{color:#ff1a1a}
+
+.platform-card.current i{background:#d5d1cb!important;box-shadow:none!important}
+.platform-card.future i{background:#6f767e!important;box-shadow:none!important}
+
+.source-cards button{color:#ece8e2}
+.source-cards button:hover{color:#ff1a1a}
+
+.footer{color:#747b83}
+
+/* Recupera algo del carácter editorial de la primera versión. */
+.hero h1{font-weight:500}
+.section-heading h2,.problem h2,.evidence-grid h2,.cta h2{font-weight:450}
+.product-window,.intel-card,.scope-panel,.platform-card,.source-cards article{border-color:rgba(255,255,255,.09)}
+
+@media(max-width:720px){
+  .brand{letter-spacing:.16em}
+}
