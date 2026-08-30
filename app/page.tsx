@@ -1,4 +1,6 @@
 import Reveal from './components/Reveal';
+import Header from './components/Header';
+import LiveOverview from './components/LiveOverview';
 
 const pipeline = [
   ['01', 'Recolecta', 'Fuentes públicas, RSS, sitios y canales definidos por proyecto.'],
@@ -6,6 +8,15 @@ const pipeline = [
   ['03', 'Detecta', 'Cambios temporales, narrativas, territorio y convergencia de riesgo.'],
   ['04', 'Explica', 'Cada señal conserva contexto, factores y evidencia verificable.'],
   ['05', 'Decide', 'Intelligence Briefs y vistas enfocadas en lo que merece atención.'],
+];
+
+const monitoringProjects = [
+  ['Monitoreo territorial', 'Territorios, menciones, negatividad y evidencia geográfica.'],
+  ['Reputación', 'Actores, temas, cambios de tono y riesgo reputacional.'],
+  ['Elección local', 'Agenda, narrativas y conversación pública por territorio.'],
+  ['Infraestructura', 'Impacto público, comunidades, medios y temas sensibles.'],
+  ['Seguridad', 'Señales públicas, aceleración y diversidad de fuentes.'],
+  ['Servicios públicos', 'Incidencias, conversación territorial y temas emergentes.'],
 ];
 
 const useCases = [
@@ -17,50 +28,25 @@ const useCases = [
   ['Medios & Research', 'Series históricas, tendencias, narrativas, territorios y fuentes verificables.'],
 ];
 
-const currentCapabilities = [
-  'Backend FastAPI y frontend Next.js',
-  'PostgreSQL y scheduler automático',
-  'Ingesta RSS y deduplicación de contenido',
-  'Idioma, keywords, topics y entities',
-  'Sentiment, political score y toxicity score',
-  'Monitoring Projects y Scope Preview',
-  'Matching amplio / estricto y explainability',
-  'Temporal, Geo, Crisis y Narrative Intelligence',
-  'Evidence drill-down e Intelligence Brief',
+const currentGroups = [
+  ['Captura', 'RSS, scheduler automático, deduplicación y normalización de contenido.'],
+  ['Comprensión', 'Idioma, keywords, topics, entities, sentimiento, political score y toxicity score.'],
+  ['Inteligencia', 'Temporal, Geo, Crisis y Narrative Intelligence con scopes independientes.'],
+  ['Evidencia', 'Matching explainability, Scope Preview, drill-down e Intelligence Brief.'],
 ];
 
-const futureCapabilities = [
-  'Más conectores y fuentes',
-  'APIs y social data',
-  'Clustering semántico',
-  'Actor intelligence',
-  'Relationship graphs',
-  'Alertas automáticas',
-  'Reportes ejecutivos',
-  'Modelos avanzados',
+const futureGroups = [
+  ['Fuentes', 'Más conectores, APIs y social data.'],
+  ['Modelado', 'Clustering semántico, actor intelligence y relationship graphs.'],
+  ['Operación', 'Alertas automáticas y reportes ejecutivos.'],
+  ['Análisis', 'Modelos avanzados sobre una arquitectura ya extensible.'],
 ];
 
-function OwlMark({ compact = false }: { compact?: boolean }) {
-  return (
-    <span className={`owl-mark ${compact ? 'compact' : ''}`} aria-hidden="true">
-      <span className="owl-ring" />
-      <span className="owl-face-shape">
-        <i className="owl-eye left" /><i className="owl-eye right" /><i className="owl-beak" />
-      </span>
-    </span>
-  );
+function BrandMark({ large = false }: { large?: boolean }) {
+  return <img className={large ? 'owl-img large' : 'owl-img'} src="/strix-owl.svg" alt="" aria-hidden="true" />;
 }
 
-function Brand() {
-  return (
-    <a className="brand" href="#top" aria-label="STRIX inicio">
-      <OwlMark compact />
-      <span>STRIX</span><b>_</b>
-    </a>
-  );
-}
-
-function ProductShell({ children, label = 'LIVE INTELLIGENCE CENTER' }: { children: React.ReactNode; label?: string }) {
+function ProductShell({ children, label }: { children: React.ReactNode; label: string }) {
   return (
     <div className="product-shell">
       <div className="product-chrome">
@@ -73,33 +59,8 @@ function ProductShell({ children, label = 'LIVE INTELLIGENCE CENTER' }: { childr
   );
 }
 
-function IntelligencePreview() {
-  return (
-    <ProductShell label="STRIX / EXECUTIVE OVERVIEW">
-      <div className="overview-panel">
-        <div className="overview-head">
-          <div>
-            <small>INTELLIGENCE BRIEF V2</small>
-            <h3>La conversación sobre servicios públicos muestra una señal acelerando.</h3>
-            <p>146 posts analizados · 12% negativos · alcance activo: CDMX</p>
-          </div>
-          <div className="time-tabs"><span>1h</span><span>6h</span><span className="active">24h</span><span>7d</span></div>
-        </div>
-        <div className="overview-kpis">
-          <div><span>POSTS</span><strong>146</strong></div>
-          <div><span>NEGATIVO</span><strong>12%</strong></div>
-          <div><span>RIESGO</span><strong>LOW</strong></div>
-          <div><span>ALERTAS</span><strong>3</strong></div>
-          <div><span>TERRITORIOS</span><strong>1</strong></div>
-        </div>
-        <div className="overview-signals">
-          <article className="signal amber"><small>SEÑAL PRINCIPAL</small><strong>general</strong><p>Sin baseline suficiente para comparar</p></article>
-          <article className="signal neutral"><small>TERRITORIO PRINCIPAL</small><strong>CDMX</strong><p>1 mención · 0% negativas</p></article>
-          <article className="signal red"><small>WATCHLIST</small><strong>general · elecciones · agua</strong><p>Temas bajo observación</p></article>
-        </div>
-      </div>
-    </ProductShell>
-  );
+function ExecutivePreview() {
+  return <ProductShell label="STRIX / EXECUTIVE OVERVIEW"><LiveOverview /></ProductShell>;
 }
 
 function GeoCrisisPreview() {
@@ -112,6 +73,7 @@ function GeoCrisisPreview() {
             <span className="road r1"/><span className="road r2"/><span className="road r3"/><span className="road r4"/><span className="road r5"/>
             <span className="map-zone z1">CDMX</span><span className="map-zone z2">EDOMEX</span><span className="map-zone z3">PUEBLA</span>
             <span className="risk-dot low d1"/><span className="risk-dot medium d2"/><span className="risk-dot high d3"/><span className="risk-dot low d4"/>
+            <span className="signal-line sl1"/><span className="signal-line sl2"/>
           </div>
           <div className="map-legend"><span><i className="low"/>Riesgo bajo</span><span><i className="medium"/>Riesgo medio</span><span><i className="high"/>Riesgo alto</span></div>
         </div>
@@ -120,6 +82,7 @@ function GeoCrisisPreview() {
           <div className="crisis-kpis"><div><span>Analizados</span><strong>1019</strong></div><div><span>Alertas</span><strong>68</strong></div><div className="risk"><span>Riesgo</span><strong>Alto</strong></div></div>
           <article className="alert-card"><div><b>Riesgo 8</b><span>negative</span></div><strong>Señal pública con convergencia de sentimiento, política y temas sensibles.</strong><p>negative sentiment · alto score político · source diversity</p><a href="#evidencia">Ver evidencia ↗</a></article>
           <article className="alert-card secondary"><div><b>Riesgo 5</b><span>monitoring</span></div><strong>Conversación emergente con aceleración temática.</strong><p>topic acceleration · source diversity</p></article>
+          <p className="method-note">El score resume convergencia e intensidad de señales. No representa una predicción de crisis.</p>
         </div>
       </div>
     </ProductShell>
@@ -154,14 +117,7 @@ export default function Home() {
   return (
     <main id="top">
       <div className="page-grid" aria-hidden="true" />
-      <header className="nav-wrap">
-        <div className="nav shell">
-          <Brand />
-          <nav>
-            <a href="#producto">Producto</a><a href="#inteligencia">Inteligencia</a><a href="#evidencia">Evidencia</a><a href="#casos">Casos de uso</a><a href="#contacto" className="nav-cta">Solicitar demo</a>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <section className="hero shell">
         <div className="hero-copy">
@@ -174,7 +130,10 @@ export default function Home() {
           </Reveal>
         </div>
         <Reveal className="hero-stage" delay={120}>
-          <div className="hero-orbit"><OwlMark/><span className="orbit o1"/><span className="orbit o2"/><span className="orbit o3"/><i className="scan-beam"/></div>
+          <div className="hero-orbit">
+            <BrandMark large />
+            <span className="orbit o1"/><span className="orbit o2"/><span className="orbit o3"/><i className="scan-beam"/>
+          </div>
           <div className="hero-console"><span>PROJECT / PUBLIC SIGNALS</span><b>ACTIVE</b><div><strong>+164%</strong><small>topic acceleration</small></div><div><strong>03</strong><small>territories</small></div><div><strong>0.82</strong><small>confidence</small></div></div>
         </Reveal>
       </section>
@@ -185,19 +144,19 @@ export default function Home() {
       </section>
 
       <section className="section shell" id="producto">
-        <Reveal className="section-heading"><div><span className="section-index">STRIX / 002</span><p className="kicker">PRODUCTO REAL</p><h2>Un centro de inteligencia, no otro dashboard.</h2></div><p>El producto prioriza señales y contexto antes que saturar al usuario con gráficas. La interfaz real de STRIX ya integra overview ejecutivo, monitoreo, narrativas, geo y riesgo.</p></Reveal>
-        <Reveal delay={80}><IntelligencePreview /></Reveal>
+        <Reveal className="section-heading"><div><span className="section-index">STRIX / 002</span><p className="kicker">PRODUCTO REAL</p><h2>Un centro de inteligencia, no otro dashboard.</h2></div><p>La plataforma prioriza señales y contexto antes que saturar al usuario con gráficas. Overview ejecutivo, monitoreo, narrativas, geo, riesgo y evidencia viven dentro del mismo sistema.</p></Reveal>
+        <Reveal delay={80}><ExecutivePreview /></Reveal>
       </section>
 
       <section className="pipeline-section">
         <div className="shell">
           <Reveal className="section-heading compact"><div><span className="section-index">STRIX / 003</span><h2>De fuente pública a inteligencia.</h2></div><p>Una arquitectura orientada a producir contexto defendible, no solamente a recolectar información.</p></Reveal>
-          <div className="pipeline">{pipeline.map(([n,title,text],i)=><Reveal key={title} delay={i*70}><article><span>{n}</span><h3>{title}</h3><p>{text}</p><b>→</b></article></Reveal>)}</div>
+          <div className="pipeline">{pipeline.map(([n,title,text],i)=><Reveal key={title} delay={i*65}><article><span>{n}</span><h3>{title}</h3><p>{text}</p><b>→</b></article></Reveal>)}</div>
         </div>
       </section>
 
       <section className="section shell" id="inteligencia">
-        <Reveal className="section-heading"><div><span className="section-index">STRIX / 004</span><p className="kicker">GEO + CRISIS INTELLIGENCE</p><h2>Entiende dónde ocurre una señal y por qué merece atención.</h2></div><p>Las alertas combinan contexto territorial, sentimiento, relevancia, aceleración temática y diversidad de fuentes. El score resume convergencia; no pretende predecir el futuro.</p></Reveal>
+        <Reveal className="section-heading"><div><span className="section-index">STRIX / 004</span><p className="kicker">GEO + CRISIS INTELLIGENCE</p><h2>Entiende dónde ocurre una señal y por qué merece atención.</h2></div><p>Las alertas combinan contexto territorial, sentimiento, relevancia, aceleración temática y diversidad de fuentes. La explicación permanece visible junto con la señal.</p></Reveal>
         <Reveal delay={80}><GeoCrisisPreview /></Reveal>
       </section>
 
@@ -217,34 +176,41 @@ export default function Home() {
       </section>
 
       <section className="section shell projects-section">
-        <Reveal className="section-heading"><div><span className="section-index">STRIX / 007</span><p className="kicker">MONITORING PROJECTS</p><h2>La plataforma se adapta al problema, no al revés.</h2></div><p>Cada proyecto define sus fuentes, keywords, topics, territorios y reglas de matching. El mismo motor puede operar scopes completamente distintos.</p></Reveal>
-        <div className="project-grid">
-          {['Monitoreo territorial','Reputación','Elección local','Infraestructura','Seguridad','Servicios públicos'].map((name,i)=><Reveal key={name} delay={i*55}><article><span>0{i+1}</span><h3>{name}</h3><p>{i===0?'Territorios, menciones, negatividad y evidencia geográfica.':i===1?'Actores, temas, cambios de tono y riesgo reputacional.':i===2?'Agenda, narrativas y conversación pública por territorio.':i===3?'Impacto público, comunidades, medios y temas sensibles.':i===4?'Señales públicas, aceleración y diversidad de fuentes.':'Incidencias, conversación territorial y temas emergentes.'}</p><b>↗</b></article></Reveal>)}
-        </div>
+        <Reveal className="section-heading"><div><span className="section-index">STRIX / 007</span><p className="kicker">MONITORING PROJECTS</p><h2>La plataforma se adapta al problema, no al revés.</h2></div><p>Cada proyecto define fuentes, keywords, topics, territorios y reglas de matching. El mismo motor puede operar scopes completamente distintos.</p></Reveal>
+        <div className="project-grid">{monitoringProjects.map(([title,text],i)=><Reveal key={title} delay={(i%3)*55}><article><span>0{i+1}</span><b>↗</b><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div>
       </section>
 
-      <section className="section case-study shell">
-        <Reveal><span className="section-index">STRIX / 008</span><p className="kicker">CASO DEMOSTRATIVO · FIGURA PÚBLICA</p><h2>Un mismo nombre puede aparecer en cientos de fuentes. STRIX construye el contexto alrededor.</h2><p className="muted">Un proyecto de seguimiento público puede consolidar medios, comunicados, agenda, territorios, actores relacionados y cambios narrativos dentro de un scope auditable. El alcance se limita a información pública y análisis legítimo; no implica perfilamiento privado ni vigilancia invasiva.</p></Reveal>
-        <Reveal delay={120} className="case-metrics"><div><span>FUENTES</span><strong>128</strong></div><div><span>REGISTROS</span><strong>14,820</strong></div><div><span>ENTIDADES</span><strong>32</strong></div><div><span>NARRATIVAS</span><strong>07</strong></div></Reveal>
+      <section className="case-study shell">
+        <Reveal><span className="section-index">STRIX / 008</span><p className="kicker">CASO DEMOSTRATIVO · FIGURA PÚBLICA</p><div className="illustrative-pill">MÉTRICAS ILUSTRATIVAS</div><h2>Un mismo nombre puede aparecer en cientos de fuentes. STRIX construye el contexto alrededor.</h2><p>Un proyecto de seguimiento público puede consolidar medios, comunicados, agenda, territorios, actores relacionados y cambios narrativos dentro de un scope auditable. El alcance se limita a información pública y análisis legítimo; no implica perfilamiento privado ni vigilancia invasiva.</p></Reveal>
+        <Reveal delay={100} className="case-metrics"><div><span>FUENTES</span><strong>128</strong></div><div><span>REGISTROS</span><strong>14,820</strong></div><div><span>ENTIDADES</span><strong>32</strong></div><div><span>NARRATIVAS</span><strong>07</strong></div></Reveal>
       </section>
 
       <section className="section shell" id="casos">
-        <Reveal className="section-heading"><div><span className="section-index">STRIX / 009</span><p className="kicker">CASOS DE USO</p><h2>La misma infraestructura. Distintas preguntas.</h2></div><p>STRIX es una plataforma de Public Intelligence; la política es un caso de uso importante, no su límite.</p></Reveal>
-        <div className="usecase-grid">{useCases.map(([title,text],i)=><Reveal key={title} delay={i*55}><article><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div>
+        <Reveal className="section-heading"><div><span className="section-index">STRIX / 009</span><p className="kicker">CASOS DE USO</p><h2>La misma infraestructura. Distintas preguntas.</h2></div><p>STRIX es una plataforma de Public Intelligence: la política es un caso de uso importante, no su límite.</p></Reveal>
+        <div className="usecase-grid">{useCases.map(([title,text],i)=><Reveal key={title} delay={(i%3)*55}><article><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article></Reveal>)}</div>
       </section>
 
       <section className="platform-section">
         <div className="shell">
-          <Reveal className="section-heading"><div><span className="section-index">STRIX / 010</span><p className="kicker">PLATFORM VISION</p><h2>Construido hoy. Diseñado para crecer.</h2></div><p>La web diferencia deliberadamente lo que ya existe de aquello hacia lo que la arquitectura está preparada para evolucionar.</p></Reveal>
-          <div className="platform-columns"><Reveal><div className="platform-card current"><small>ACTUALMENTE</small>{currentCapabilities.map(item=><div key={item}><i/> {item}</div>)}</div></Reveal><Reveal delay={100}><div className="platform-card future"><small>DISEÑADO PARA EVOLUCIONAR HACIA</small>{futureCapabilities.map(item=><div key={item}><i/> {item}</div>)}</div></Reveal></div>
+          <Reveal className="section-heading"><div><span className="section-index">STRIX / 010</span><p className="kicker">PLATFORM VISION</p><h2>Construido hoy. Diseñado para crecer.</h2></div><p>Diferenciamos deliberadamente lo que ya existe de aquello hacia lo que la arquitectura está preparada para evolucionar.</p></Reveal>
+          <div className="platform-columns">
+            <Reveal><div className="platform-card current"><div className="panel-label">ACTUALMENTE</div>{currentGroups.map(([title,text])=><article key={title}><i/><div><strong>{title}</strong><p>{text}</p></div></article>)}<small className="stack-note">STACK · FastAPI · Next.js · PostgreSQL</small></div></Reveal>
+            <Reveal delay={90}><div className="platform-card future"><div className="panel-label">DISEÑADO PARA EVOLUCIONAR HACIA</div>{futureGroups.map(([title,text])=><article key={title}><i/><div><strong>{title}</strong><p>{text}</p></div></article>)}</div></Reveal>
+          </div>
         </div>
       </section>
 
+      <section className="trust-band shell" aria-label="Principios de operación"><span>INFORMACIÓN PÚBLICA</span><span>EVIDENCIA TRAZABLE</span><span>SCOPES CONFIGURABLES</span><span>ANÁLISIS EXPLICABLE</span></section>
+
       <section className="cta shell" id="contacto">
-        <Reveal><OwlMark/><span className="section-index">STRIX / 011</span><p>PUBLIC INTELLIGENCE, CON EVIDENCIA.</p><h2>Convierte información pública en <em>inteligencia accionable.</em></h2><div className="hero-actions cta-actions"><a className="button button-primary large" href="mailto:foropeza0526@gmail.com?subject=STRIX%20-%20Solicitud%20de%20demo">Solicitar una demostración <span>↗</span></a><a className="button button-ghost large" href="mailto:foropeza0526@gmail.com?subject=STRIX%20-%20Caso%20de%20uso">Hablar sobre un caso de uso</a></div></Reveal>
+        <Reveal>
+          <BrandMark />
+          <span className="section-index">STRIX / 011</span><p>PUBLIC INTELLIGENCE, CON EVIDENCIA.</p><h2>Convierte información pública en <em>inteligencia accionable.</em></h2>
+          <div className="hero-actions cta-actions"><a className="button button-primary large" href="mailto:foropeza0526@gmail.com?subject=STRIX%20-%20Solicitud%20de%20demo">Solicitar una demostración <span>↗</span></a><a className="button button-ghost large" href="mailto:foropeza0526@gmail.com?subject=STRIX%20-%20Caso%20de%20uso">Hablar sobre un caso de uso</a></div>
+        </Reveal>
       </section>
 
-      <footer className="footer shell"><Brand/><p>Public Intelligence · Monitoring · Evidence · Narratives · Geo · Crisis</p><span>© 2026 STRIX</span></footer>
+      <footer className="footer shell"><a className="brand footer-brand" href="#top"><span className="brand-owl"><img src="/strix-owl.svg" alt="" /></span><span>STRIX</span><b>_</b></a><p>Public Intelligence · Monitoring · Evidence · Narratives · Geo · Crisis</p><span>© 2026 STRIX</span></footer>
     </main>
   );
 }
