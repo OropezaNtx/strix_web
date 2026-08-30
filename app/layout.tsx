@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'STRIX WEB | Inteligencia web y scraping',
+  title: 'ASTRIX | Public Intelligence Platform',
   description:
-    'STRIX transforma fuentes web públicas en datos estructurados, monitoreo y análisis para decisiones comerciales, políticas y operativas.',
+    'ASTRIX transforma información pública dispersa en inteligencia sobre tendencias, narrativas, territorio y riesgo con evidencia trazable.',
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
