@@ -1,199 +1,254 @@
-const capabilities = [
-  ['01', 'Web scraping', 'Captura automatizada de información pública desde sitios, directorios, catálogos y portales relevantes.'],
-  ['02', 'Normalización', 'Convertimos fuentes distintas en estructuras consistentes, comparables y listas para análisis.'],
-  ['03', 'Monitoreo', 'Procesos recurrentes para detectar cambios, nuevas publicaciones, movimientos de mercado o señales relevantes.'],
-  ['04', 'Enriquecimiento', 'Cruces entre fuentes, clasificación de entidades, reglas de negocio y generación de atributos útiles.'],
-  ['05', 'Análisis', 'Datasets, indicadores, dashboards y salidas diseñadas alrededor de la decisión que necesitas tomar.'],
-  ['06', 'Integración', 'Entregamos datos por archivos, bases estructuradas, APIs o flujos conectados a tus herramientas actuales.'],
+const pipeline = ['Recolecta', 'Clasifica', 'Detecta', 'Contextualiza', 'Explica'];
+
+const useCases = [
+  ['Gobierno', 'Detecta problemas territoriales, servicios y conversación pública con evidencia trazable.'],
+  ['Public Affairs', 'Monitorea actores, temas y riesgo reputacional con una visión estructurada del entorno público.'],
+  ['Consultoría', 'Administra inteligencia para múltiples proyectos o clientes desde scopes independientes.'],
+  ['Comunicación', 'Identifica narrativas, cambios de tono y señales que requieren atención temprana.'],
+  ['Empresas', 'Observa temas públicos, entorno reputacional y señales externas que pueden afectar decisiones.'],
+  ['Medios / Research', 'Analiza tendencias, narrativas, territorios y evidencia sobre conversación pública.'],
 ];
 
-const sectors = [
-  ['Comercial', 'Prospección, establecimientos, cobertura, presencia de marcas, aperturas y directorios.'],
-  ['Mercado', 'Precios, catálogos, disponibilidad, productos, competidores y cambios visibles en canales digitales.'],
-  ['Medios', 'Noticias, menciones, publicaciones, seguimiento temático y construcción de archivos históricos.'],
-  ['Operaciones', 'Registros públicos, licitaciones, portales institucionales, directorios y cambios en fuentes operativas.'],
-  ['Investigación', 'Construcción de datasets, cruces de fuentes, series históricas y monitoreo recurrente.'],
-  ['Político', 'Seguimiento de información pública, agenda, medios, actores relevantes y señales de contexto.'],
+const currentCapabilities = [
+  'FastAPI + Next.js + PostgreSQL',
+  'Scheduler e ingesta RSS',
+  'Deduplicación, idioma y keywords',
+  'Topics, entities y sentimiento',
+  'Political score y toxicity score',
+  'Monitoring Projects y Scope Preview',
+  'Matching amplio / estricto y explainability',
+  'Temporal, Geo, Crisis y Narrative Intelligence',
+  'Evidence drill-down e Intelligence Brief',
 ];
 
-const stack = ['FUENTES', 'CAPTURA', 'VALIDACIÓN', 'ESTRUCTURACIÓN', 'ANÁLISIS', 'DECISIÓN'];
+const futureCapabilities = [
+  'Más fuentes y conectores',
+  'APIs y social data',
+  'Clustering semántico',
+  'Actor intelligence',
+  'Relationship graphs',
+  'Alertas automáticas',
+  'Reportes ejecutivos',
+  'Modelos avanzados',
+];
+
+function Brand() {
+  return (
+    <a className="brand" href="#top" aria-label="ASTRIX inicio">
+      <span className="brand-mark" aria-hidden="true">
+        <i className="ear left" />
+        <i className="ear right" />
+        <i className="eye left" />
+        <i className="eye right" />
+        <i className="beak" />
+      </span>
+      <span>ASTRIX</span><b>_</b>
+    </a>
+  );
+}
+
+function ProductBrief() {
+  return (
+    <div className="product-window hero-window">
+      <div className="window-top">
+        <div><span className="dot cyan" /><span className="dot violet" /><span className="dot coral" /></div>
+        <small>MONITORING PROJECT / WATER SUPPLY</small>
+        <span className="status"><i /> ACTIVE</span>
+      </div>
+      <div className="brief-grid">
+        <div className="brief-main">
+          <div className="panel-label">INTELLIGENCE BRIEF</div>
+          <h3>La conversación sobre suministro de agua aceleró durante las últimas 24 horas.</h3>
+          <p>La señal se concentra en tres territorios, con aumento de negatividad y diversidad de fuentes.</p>
+          <div className="brief-metrics">
+            <div><strong>+164%</strong><span>vs baseline</span></div>
+            <div><strong>71%</strong><span>negativo</span></div>
+            <div><strong>03</strong><span>territorios</span></div>
+            <div><strong>04</strong><span>fuentes</span></div>
+          </div>
+          <div className="risk-row"><span>RISK LEVEL</span><b>Elevated</b><i /></div>
+        </div>
+        <div className="brief-side">
+          <div className="mini-map">
+            <span className="map-glow g1" /><span className="map-glow g2" /><span className="map-glow g3" />
+            <div className="territory t1">Iztapalapa</div>
+            <div className="territory t2">Nezahualcóyotl</div>
+            <div className="territory t3">Chimalhuacán</div>
+          </div>
+          <div className="signal-stack">
+            <span>NARRATIVE / SERVICIOS PÚBLICOS</span>
+            <strong>68% negativo</strong>
+            <small>6 fuentes · confidence 0.82</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <main>
+    <main id="top">
       <div className="ambient ambient-a" />
       <div className="ambient ambient-b" />
-
-      <header className="nav shell">
-        <a className="brand" href="#top" aria-label="STRIX WEB inicio">
-          <span>STRIX WEB</span><b>_</b>
-        </a>
-        <nav>
-          <a href="#capacidades">Capacidades</a>
-          <a href="#caso">Caso de uso</a>
-          <a href="#sectores">Sectores</a>
-          <a href="#contacto" className="nav-cta">Hablar con STRIX</a>
-        </nav>
+      <header className="nav-wrap">
+        <div className="nav shell">
+          <Brand />
+          <nav>
+            <a href="#producto">Producto</a>
+            <a href="#inteligencia">Inteligencia</a>
+            <a href="#casos">Casos de uso</a>
+            <a href="#plataforma">Plataforma</a>
+            <a href="#contacto" className="nav-cta">Solicitar demo</a>
+          </nav>
+        </div>
       </header>
 
-      <section className="hero shell" id="top">
+      <section className="hero shell">
         <div className="hero-copy">
-          <div className="eyebrow"><span /> INTELIGENCIA WEB / DATA ACQUISITION</div>
-          <h1>Convertimos la web en <em>información accionable.</em></h1>
-          <p className="hero-lead">
-            Diseñamos sistemas de scraping, monitoreo y estructuración de datos para transformar fuentes públicas dispersas en información útil para investigación, operación y toma de decisiones.
-          </p>
+          <div className="eyebrow"><span /> PUBLIC INTELLIGENCE PLATFORM</div>
+          <h1>Entiende qué está moldeando la <em>conversación pública.</em></h1>
+          <p className="hero-lead">ASTRIX convierte información pública dispersa en señales accionables sobre narrativas, tendencias, territorio y riesgo.</p>
           <div className="hero-actions">
-            <a className="button button-primary" href="#capacidades">Explorar capacidades <span>↗</span></a>
-            <a className="button button-ghost" href="#caso">Ver caso de uso</a>
+            <a className="button button-primary" href="#contacto">Solicitar demo <span>↗</span></a>
+            <a className="button button-ghost" href="#producto">Ver cómo funciona</a>
           </div>
           <div className="trust-row">
-            <span>01 / Datos estructurados</span>
-            <span>02 / Procesos trazables</span>
-            <span>03 / Monitoreo recurrente</span>
+            <span>01 / Evidencia trazable</span>
+            <span>02 / Scopes independientes</span>
+            <span>03 / Señales explicables</span>
           </div>
         </div>
-
-        <div className="hero-mark" aria-label="Identidad gráfica STRIX">
-          <div className="owl-frame">
-            <div className="scanlines" />
-            <div className="owl-face">
-              <div className="owl-brow left" />
-              <div className="owl-brow right" />
-              <div className="eye left"><i /></div>
-              <div className="eye right"><i /></div>
-              <div className="beak" />
-            </div>
-            <div className="binary binary-one">01001 00110<br/>10110 01001<br/>00011 10100</div>
-            <div className="binary binary-two">DATA_INGEST<br/>SOURCE: PUBLIC<br/>STATUS: ACTIVE</div>
-          </div>
-          <div className="mark-label">OBSERVE / EXTRACT / STRUCTURE</div>
-        </div>
+        <div className="hero-visual"><ProductBrief /></div>
       </section>
 
-      <section className="manifesto shell">
-        <div className="section-index">STRIX / 001</div>
+      <section className="problem shell" id="producto">
+        <div className="section-index">ASTRIX / 001</div>
         <div>
-          <p className="kicker">NO VENDEMOS “UN SCRIPT”.</p>
-          <h2>Construimos infraestructura para observar información que cambia.</h2>
+          <p className="kicker">EL PROBLEMA</p>
+          <h2>Más información no significa más claridad.</h2>
         </div>
-        <p className="muted">
-          El scraping es una capa del sistema. El valor aparece cuando la captura se combina con validación, limpieza, reglas de negocio, monitoreo y una salida pensada para una decisión concreta.
-        </p>
-      </section>
-
-      <section className="section shell" id="capacidades">
-        <div className="section-heading">
-          <div><span className="section-index">STRIX / 002</span><h2>Capacidades</h2></div>
-          <p>De una fuente web a un activo de datos reutilizable.</p>
-        </div>
-        <div className="cap-grid">
-          {capabilities.map(([n, title, text]) => (
-            <article className="cap-card" key={title}>
-              <span className="card-number">{n}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-              <div className="card-line" />
-            </article>
-          ))}
-        </div>
+        <p className="muted">Noticias, medios, sitios, fuentes públicas, reportes y múltiples territorios generan volumen, pero no necesariamente contexto. ASTRIX reduce el ruido y organiza la evidencia alrededor de preguntas concretas.</p>
       </section>
 
       <section className="pipeline-section">
         <div className="shell">
           <div className="section-heading compact">
-            <div><span className="section-index">STRIX / 003</span><h2>Del ruido a la señal</h2></div>
-            <p>Cada proyecto parte de la pregunta, no de la herramienta.</p>
+            <div><span className="section-index">ASTRIX / 002</span><h2>De fuente pública a inteligencia.</h2></div>
+            <p>Una pipeline orientada a entender qué cambia, dónde cambia y por qué merece atención.</p>
           </div>
           <div className="pipeline">
-            {stack.map((item, index) => (
+            {pipeline.map((item, index) => (
               <div className="pipeline-step" key={item}>
-                <span>0{index + 1}</span><strong>{item}</strong>
-                {index < stack.length - 1 && <b>→</b>}
+                <span>0{index + 1}</span><strong>{item}</strong>{index < pipeline.length - 1 && <b>→</b>}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="case shell" id="caso">
-        <div className="case-intro">
-          <span className="section-index">STRIX / 004</span>
-          <div className="case-badge"><span /> CASO DEMOSTRATIVO · SECTOR POLÍTICO</div>
-          <h2>Una figura pública. Cientos de fuentes. Un solo sistema de observación.</h2>
-          <p>
-            Para una personalidad del sector político, STRIX puede consolidar información pública proveniente de medios, comunicados, agenda institucional y otras fuentes abiertas para construir un entorno de seguimiento estructurado.
-          </p>
-          <p className="legal-note">
-            El alcance se limita a información pública y usos legítimos de análisis. No se plantea perfilamiento privado, vigilancia invasiva ni manipulación electoral.
-          </p>
-        </div>
-
-        <div className="case-dashboard">
-          <div className="dash-top">
-            <div><small>PROJECT</small><strong>PUBLIC FIGURE INTELLIGENCE</strong></div>
-            <span className="live"><i /> LIVE MONITORING</span>
-          </div>
-          <div className="metrics">
-            <div><small>FUENTES</small><strong>128</strong><span>monitoreadas</span></div>
-            <div><small>REGISTROS</small><strong>14,820</strong><span>procesados</span></div>
-            <div><small>ENTIDADES</small><strong>32</strong><span>identificadas</span></div>
-            <div><small>TEMAS</small><strong>08</strong><span>clasificados</span></div>
-          </div>
-          <div className="signal-panel">
-            <div className="signal-head"><span>ACTIVIDAD DE FUENTES</span><span>ÚLTIMOS 30 DÍAS</span></div>
-            <div className="bars">
-              {[42, 55, 38, 68, 59, 84, 72, 91, 61, 77, 66, 88, 74, 96, 81, 69, 92, 78, 85, 98, 73, 88, 94, 79].map((h, i) => <i key={i} style={{height:`${h}%`}} />)}
-            </div>
-          </div>
-          <div className="dash-foot"><span>Automated collection</span><span>Entity resolution</span><span>Historical archive</span><span>Structured output</span></div>
-        </div>
-      </section>
-
-      <section className="section shell" id="sectores">
+      <section className="section shell" id="inteligencia">
         <div className="section-heading">
-          <div><span className="section-index">STRIX / 005</span><h2>La misma infraestructura.<br/>Distintas preguntas.</h2></div>
-          <p>STRIX no está limitado a un sector. Diseñamos la captura alrededor de la información que necesitas observar.</p>
+          <div><span className="section-index">ASTRIX / 003</span><h2>Intelligence Brief</h2></div>
+          <p>ASTRIX no obliga al usuario a interpretar veinte gráficas. Resume la señal y deja disponible la evidencia detrás de cada conclusión.</p>
         </div>
-        <div className="sector-list">
-          {sectors.map(([title, text], i) => (
-            <article key={title}>
-              <span>0{i + 1}</span><h3>{title}</h3><p>{text}</p><b>↗</b>
-            </article>
-          ))}
+        <ProductBrief />
+      </section>
+
+      <section className="intelligence-grid shell">
+        <article className="intel-card wide">
+          <div className="panel-label">TEMPORAL INTELLIGENCE</div>
+          <div className="intel-copy"><h3>Detecta conversaciones que están acelerando.</h3><p>Ventanas de 24h, 7d y 30d, baseline histórico, temas emergentes y aceleración.</p></div>
+          <div className="trend-chart">
+            <div className="trend-header"><span>agua</span><b>x1.6 · Acelerando</b></div>
+            <div className="chart-line"><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/><i/></div>
+          </div>
+        </article>
+        <article className="intel-card geo-card">
+          <div className="panel-label">GEO INTELLIGENCE</div>
+          <div className="geo-visual"><span className="map-glow g1"/><span className="map-glow g2"/><span className="map-glow g3"/><div className="geo-tag gt1">Municipio · 126 menciones</div><div className="geo-tag gt2">Confidence 0.87</div></div>
+          <h3>Entiende dónde se concentra una conversación.</h3><p>Canonical location, nivel de confianza, territorio y evidencia disponible en cada señal.</p>
+        </article>
+        <article className="intel-card risk-card">
+          <div className="panel-label">CRISIS INTELLIGENCE</div>
+          <div className="risk-score"><strong>6.8</strong><span>Risk Score</span></div>
+          <ul className="factor-list">
+            <li><span>negative sentiment</span><b>+1.4</b></li><li><span>political relevance</span><b>+1.2</b></li><li><span>topic acceleration</span><b>+1.6</b></li><li><span>territorial confidence</span><b>+1.0</b></li><li><span>source diversity</span><b>+0.6</b></li>
+          </ul>
+          <p className="fine-print">El score resume convergencia e intensidad de señales. No representa una predicción de crisis.</p>
+        </article>
+        <article className="intel-card narrative-card">
+          <div className="panel-label">NARRATIVE INTELLIGENCE</div>
+          <div className="narrative-badge">NARRATIVA DOMINANTE</div>
+          <h3>Servicios públicos</h3><div className="narrative-stats"><strong>68%</strong><span>negativo</span><strong>06</strong><span>fuentes</span></div>
+          <p>No solo qué se dice, sino bajo qué marco narrativo se está construyendo la conversación.</p>
+        </article>
+      </section>
+
+      <section className="evidence-section">
+        <div className="shell evidence-grid">
+          <div>
+            <span className="section-index">ASTRIX / 004</span>
+            <p className="kicker">EVIDENCE / TRACEABILITY</p>
+            <h2>Cada conclusión debe poder auditarse.</h2>
+            <p className="muted">Señal, explicación, posts, fuentes, territorio y contenido original permanecen conectados para poder verificar cómo se llegó a una lectura.</p>
+          </div>
+          <div className="evidence-flow">
+            {['SEÑAL', 'POR QUÉ', 'POSTS', 'FUENTES', 'TERRITORIO', 'CONTENIDO ORIGINAL'].map((item, i) => <div key={item}><span>0{i+1}</span><strong>{item}</strong>{i < 5 && <b>↓</b>}</div>)}
+          </div>
+          <div className="source-cards">
+            <article><small>FUENTE / MEDIO</small><h4>Reporte sobre suministro de agua en zona oriente</h4><p>Coincidencia: keyword + topic + territorio</p><button>Abrir fuente ↗</button></article>
+            <article><small>FUENTE / INSTITUCIONAL</small><h4>Comunicado de afectación temporal del servicio</h4><p>Confidence territorial: 0.91</p><button>Abrir fuente ↗</button></article>
+          </div>
         </div>
       </section>
 
-      <section className="principles">
-        <div className="shell principles-grid">
-          <div>
-            <span className="section-index">STRIX / 006</span>
-            <h2>Información pública.<br/>Procesos trazables.<br/><em>Uso responsable.</em></h2>
+      <section className="section shell projects-section">
+        <div className="section-heading">
+          <div><span className="section-index">ASTRIX / 005</span><h2>Monitoring Projects</h2></div>
+          <p>La plataforma se adapta al problema, no al revés. Cada proyecto define su propio scope y reglas de matching.</p>
+        </div>
+        <div className="project-layout">
+          <div className="project-list">
+            {['Monitoreo territorial','Reputación','Elección local','Proyecto de infraestructura','Seguridad','Servicios públicos'].map((item,i)=><div key={item} className={i===0?'active':''}><span>0{i+1}</span><strong>{item}</strong><b>↗</b></div>)}
           </div>
-          <div className="principle-copy">
-            <p>La capacidad técnica no sustituye el criterio. Evaluamos cada fuente, frecuencia y método de adquisición según el contexto del proyecto.</p>
-            <ul>
-              <li><span>01</span> Privacidad y minimización de datos.</li>
-              <li><span>02</span> Respeto por restricciones técnicas y contractuales aplicables.</li>
-              <li><span>03</span> Límites de frecuencia y operación responsable.</li>
-              <li><span>04</span> Trazabilidad sobre origen, transformación y salida.</li>
-            </ul>
+          <div className="scope-panel">
+            <div className="panel-label">SCOPE CONFIGURATION</div>
+            <div className="scope-row"><span>Sources</span><b>14</b></div><div className="scope-row"><span>Keywords</span><b>28</b></div><div className="scope-row"><span>Topics</span><b>06</b></div><div className="scope-row"><span>Territories</span><b>03</b></div><div className="scope-row"><span>Matching mode</span><b>STRICT</b></div>
+            <div className="scope-note">Scope Preview disponible antes de ejecutar análisis.</div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section shell" id="casos">
+        <div className="section-heading">
+          <div><span className="section-index">ASTRIX / 006</span><h2>Casos de uso</h2></div>
+          <p>Una plataforma de Public Intelligence para equipos que necesitan contexto defendible, no solo volumen de datos.</p>
+        </div>
+        <div className="usecase-grid">{useCases.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+      </section>
+
+      <section className="platform-section" id="plataforma">
+        <div className="shell">
+          <div className="section-heading">
+            <div><span className="section-index">ASTRIX / 007</span><h2>Plataforma actual y visión</h2></div>
+            <p>Separamos con claridad lo que ya existe de lo que está diseñado para evolucionar.</p>
+          </div>
+          <div className="platform-columns">
+            <div className="platform-card current"><div className="panel-label">ACTUALMENTE</div>{currentCapabilities.map(item=><div key={item}><i/> {item}</div>)}</div>
+            <div className="platform-card future"><div className="panel-label">DISEÑADO PARA EVOLUCIONAR HACIA</div>{futureCapabilities.map(item=><div key={item}><i/> {item}</div>)}</div>
           </div>
         </div>
       </section>
 
       <section className="cta shell" id="contacto">
-        <span className="section-index">STRIX / 007</span>
-        <p>TIENES UNA FUENTE. NOSOTROS CONSTRUIMOS EL SISTEMA.</p>
-        <h2>Hay información allá afuera.<br/><em>STRIX la convierte en infraestructura.</em></h2>
-        <a className="button button-primary large" href="mailto:contacto@strixweb.mx">Hablemos de tu caso <span>↗</span></a>
+        <span className="section-index">ASTRIX / 008</span>
+        <p>PUBLIC INTELLIGENCE, CON EVIDENCIA.</p>
+        <h2>Convierte información pública en <em>inteligencia accionable.</em></h2>
+        <div className="hero-actions cta-actions"><a className="button button-primary large" href="mailto:foropeza0526@gmail.com">Solicitar una demostración <span>↗</span></a><a className="button button-ghost large" href="mailto:foropeza0526@gmail.com?subject=ASTRIX%20-%20Caso%20de%20uso">Hablar sobre un caso de uso</a></div>
       </section>
 
-      <footer className="footer shell">
-        <div className="brand"><span>STRIX WEB</span><b>_</b></div>
-        <p>Inteligencia web · Scraping · Data acquisition · Monitoring</p>
-        <span>© 2026 STRIX WEB</span>
-      </footer>
+      <footer className="footer shell"><Brand /><p>Public Intelligence Platform · Monitoring · Evidence · Narratives · Geo</p><span>© 2026 ASTRIX</span></footer>
     </main>
   );
 }
