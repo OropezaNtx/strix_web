@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 360" role="img" aria-labelledby="title desc">
+  <title id="title">STRIX owl mark</title>
+  <desc id="desc">Minimal monochrome barn owl emblem with red technical accent</desc>
+  <defs>
+    <radialGradient id="face" cx="50%" cy="34%" r="68%">
+      <stop offset="0" stop-color="#f2eee8"/>
+      <stop offset=".38" stop-color="#b8b5b0"/>
+      <stop offset=".7" stop-color="#555a60"/>
+      <stop offset="1" stop-color="#111418"/>
+    </radialGradient>
+    <radialGradient id="eye" cx="42%" cy="38%" r="64%">
+      <stop offset="0" stop-color="#22272d"/>
+      <stop offset=".7" stop-color="#07090b"/>
+      <stop offset="1" stop-color="#000"/>
+    </radialGradient>
+    <filter id="softGlow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <circle cx="160" cy="176" r="136" fill="none" stroke="#d7d2ca" stroke-opacity=".12"/>
+  <circle cx="160" cy="176" r="113" fill="none" stroke="#ff3038" stroke-opacity=".16"/>
+  <path d="M70 72 118 50 160 88 202 50 250 72 240 230 196 314 160 280 124 314 80 230Z" fill="url(#face)" stroke="#d7d2ca" stroke-opacity=".12"/>
+  <path d="M88 91c22-25 46-31 72-4-18 2-34 11-46 25-10 12-16 28-18 48-16-19-20-45-8-69Z" fill="#e9e5de" fill-opacity=".9"/>
+  <path d="M232 91c-22-25-46-31-72-4 18 2 34 11 46 25 10 12 16 28 18 48 16-19 20-45 8-69Z" fill="#e9e5de" fill-opacity=".9"/>
+  <ellipse cx="119" cy="164" rx="51" ry="58" fill="url(#eye)"/>
+  <ellipse cx="201" cy="164" rx="51" ry="58" fill="url(#eye)"/>
+  <circle cx="119" cy="163" r="8" fill="#f5f0e9"/>
+  <circle cx="201" cy="163" r="8" fill="#f5f0e9"/>
+  <circle cx="119" cy="163" r="17" fill="#f5f0e9" opacity=".14" filter="url(#softGlow)"/>
+  <circle cx="201" cy="163" r="17" fill="#f5f0e9" opacity=".14" filter="url(#softGlow)"/>
+  <path d="m160 165 16 28-16 48-16-48Z" fill="#e3ded7"/>
+  <path d="M160 241 196 314 160 280 124 314Z" fill="#0a0c0f" fill-opacity=".7"/>
+  <path d="M31 176h58M231 176h58" stroke="#ff3038" stroke-opacity=".45" stroke-width="1"/>
+  <path d="M45 168h22M253 168h22M53 186h12M255 186h12" stroke="#d8d4cd" stroke-opacity=".24"/>
+</svg>
